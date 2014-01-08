@@ -286,6 +286,7 @@ public class WebCrawler implements Runnable {
 					if (myController.getConfig().isFollowRedirects()) {
 						String movedToUrl = fetchResult.getMovedToUrl();
 						if (movedToUrl == null) {
+							handlePageRedirects(curURL, null, null, statusCode, CustomFetchStatus.getStatusDescription(statusCode));
 							return;
 						}
 						WebURL webURL = new WebURL();
